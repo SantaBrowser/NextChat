@@ -120,7 +120,7 @@ function getApiKey(keys?: string) {
   const apiKey = apiKeys[randomIndex];
   if (apiKey) {
     console.log(
-      `[Server Config] using 123123123 ${randomIndex + 1} of ${
+      `[Server Config] using ${randomIndex + 1} of ${
         apiKeys.length
       } api key - ${apiKey}`,
     );
@@ -141,6 +141,8 @@ export const getServerSideConfig = () => {
   let defaultModel = process.env.DEFAULT_MODEL ?? "";
   let visionModels = process.env.VISION_MODELS ?? "";
 
+  console.log("!!!!!!!!!!!   1", customModels);
+
   if (disableGPT4) {
     if (customModels) customModels += ",";
     customModels += DEFAULT_MODELS.filter((m) => isGPT4Model(m.name))
@@ -150,6 +152,8 @@ export const getServerSideConfig = () => {
       defaultModel = "";
     }
   }
+
+  console.log("!!!!!!!!!!!   2", customModels);
 
   const isStability = !!process.env.STABILITY_API_KEY;
 
@@ -179,8 +183,6 @@ export const getServerSideConfig = () => {
   const allowedWebDavEndpoints = (
     process.env.WHITE_WEBDAV_ENDPOINTS ?? ""
   ).split(",");
-
-  console.log("!!!!!!!!!!!", customModels);
 
   return {
     baseUrl: process.env.BASE_URL,
