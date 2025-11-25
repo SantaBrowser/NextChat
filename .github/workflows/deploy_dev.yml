@@ -16,12 +16,12 @@ jobs:
       - name: Copy files to server
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
+          host: ${{ vars.SSH_HOST_DEV }}
+          username: ${{ vars.SSH_USER_DEV }}
+          key: ${{ secrets.SSH_KEY_DEV }}
           script: |
-            cd /opt/nextchat
+            cd /opt/NextChat
             git reset --hard
             git pull
-            docker compose down
-            docker compose up -d --build
+            docker compose --profile no-proxy down
+            docker compose --profile no-proxy up -d --build
