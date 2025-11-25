@@ -23,5 +23,6 @@ jobs:
             cd /opt/NextChat
             git reset --hard
             git pull
+            docker build -t santabrowser/chatgpt-next-web .
             docker compose --profile no-proxy down
             docker compose --profile no-proxy up -d --build
