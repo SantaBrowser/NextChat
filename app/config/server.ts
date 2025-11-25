@@ -180,6 +180,8 @@ export const getServerSideConfig = () => {
     process.env.WHITE_WEBDAV_ENDPOINTS ?? ""
   ).split(",");
 
+  console.log("!!!!!!!!!!!", customModels);
+
   return {
     baseUrl: process.env.BASE_URL,
     apiKey: getApiKey(process.env.OPENAI_API_KEY),
