@@ -22,6 +22,7 @@ declare global {
 }
 
 async function handle() {
+  console.log(DANGER_CONFIG);
   return NextResponse.json(DANGER_CONFIG);
 }
 
