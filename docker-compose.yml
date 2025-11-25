@@ -19,6 +19,7 @@ services:
       - OPENAI_SB=$OPENAI_SB
       - DEFAULT_MODEL=$DEFAULT_MODEL
       - CUSTOM_MODELS=$CUSTOM_MODELS
+      - VISION_MODELS=$VISION_MODELS
 
   chatgpt-next-web-proxy:
     profiles: [ "proxy" ]
