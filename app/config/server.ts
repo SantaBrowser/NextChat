@@ -141,7 +141,7 @@ export const getServerSideConfig = () => {
   let defaultModel = process.env.DEFAULT_MODEL ?? "";
   let visionModels = process.env.VISION_MODELS ?? "";
 
-  if (disableGPT4) {
+  /*if (disableGPT4) {
     if (customModels) customModels += ",";
     customModels += DEFAULT_MODELS.filter((m) => isGPT4Model(m.name))
       .map((m) => "-" + m.name)
@@ -149,7 +149,7 @@ export const getServerSideConfig = () => {
     if (defaultModel && isGPT4Model(defaultModel)) {
       defaultModel = "";
     }
-  }
+  }*/
 
   const isStability = !!process.env.STABILITY_API_KEY;
 
