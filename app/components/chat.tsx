@@ -2086,7 +2086,7 @@ function _Chat() {
                   onKeyDown={onInputKeyDown}
                   onFocus={scrollToBottom}
                   onClick={scrollToBottom}
-                  onPaste={handlePaste}
+                  onPaste={() => {}} /* handlePaste handles image pasting */
                   rows={inputRows}
                   autoFocus={autoFocus}
                   style={{
