@@ -570,12 +570,13 @@ export function ChatActions(props: {
   const isMobileScreen = useMobileScreen();
 
   useEffect(() => {
-    const show = isVisionModel(currentModel);
-    setShowUploadImage(show);
-    if (!show) {
-      props.setAttachImages([]);
-      props.setUploading(false);
-    }
+    // Disabling upload images feature.
+    // const show = isVisionModel(currentModel);
+    // setShowUploadImage(show);
+    // if (!show) {
+    props.setAttachImages([]);
+    props.setUploading(false);
+    // }
 
     // if current model is not available
     // switch to first available model
