@@ -109,7 +109,7 @@ import {
   UNFINISHED_INPUT,
 } from "../constant";
 import { Avatar } from "./emoji";
-import { ContextPrompts, MaskAvatar, MaskConfig } from "./mask";
+import { MaskAvatar, MaskConfig } from "./mask";
 import { useMaskStore } from "../store/mask";
 import { ChatCommandPrefix, useChatCommand, useCommand } from "../command";
 import { prettyObject } from "../utils/format";
@@ -899,14 +899,15 @@ export function EditMessageModal(props: { onClose: () => void }) {
             ></input>
           </ListItem>
         </List>
-        <ContextPrompts
-          context={messages}
-          updateContext={(updater) => {
-            const newMessages = messages.slice();
-            updater(newMessages);
-            setMessages(newMessages);
-          }}
-        />
+
+        {/*<ContextPrompts*/}
+        {/*  context={messages}*/}
+        {/*  updateContext={(updater) => {*/}
+        {/*    const newMessages = messages.slice();*/}
+        {/*    updater(newMessages);*/}
+        {/*    setMessages(newMessages);*/}
+        {/*  }}*/}
+        {/*/>*/}
       </Modal>
     </div>
   );
