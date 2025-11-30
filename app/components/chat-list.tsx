@@ -1,4 +1,4 @@
-import DeleteIcon from "../icons/delete.svg";
+import DotsIcon from "../icons/dots.svg";
 
 import styles from "./home.module.scss";
 import {
@@ -16,13 +16,12 @@ import { Path } from "../constant";
 import { MaskAvatar } from "./mask";
 import { Mask } from "../store/mask";
 import { useRef, useEffect } from "react";
-import { showConfirm } from "./ui-lib";
 import { useMobileScreen } from "../utils";
 import clsx from "clsx";
 
 export function ChatItem(props: {
   onClick?: () => void;
-  onDelete?: () => void;
+  onShowChatOptions?: () => void;
   title: string;
   count: number;
   time: string;
@@ -89,12 +88,11 @@ export function ChatItem(props: {
           <div
             className={styles["chat-item-delete"]}
             onClickCapture={(e) => {
-              props.onDelete?.();
               e.preventDefault();
               e.stopPropagation();
             }}
           >
-            <DeleteIcon />
+            <DotsIcon />
           </div>
         </div>
       )}
@@ -153,13 +151,16 @@ export function ChatList(props: { narrow?: boolean }) {
                   navigate(Path.Chat);
                   selectSession(i);
                 }}
-                onDelete={async () => {
-                  if (
-                    (!props.narrow && !isMobileScreen) ||
-                    (await showConfirm(Locale.Home.DeleteChat))
-                  ) {
-                    chatStore.deleteSession(i);
-                  }
+                onShowChatOptions={async () => {
+                  // if (!props.narrow && !isMobileScreen) {
+                  //   showChatOptions(i);
+                  // }
+                  // if (
+                  //   (!props.narrow && !isMobileScreen) ||
+                  //   (await showConfirm(Locale.Home.DeleteChat))
+                  // ) {
+                  //   chatStore.deleteSession(i);
+                  // }
                 }}
                 narrow={props.narrow}
                 mask={item.mask}
