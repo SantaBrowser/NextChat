@@ -249,7 +249,7 @@ export function SideBar(props: { className?: string }) {
       shouldNarrow={shouldNarrow}
       {...props}
     >
-      <SideBarHeader title="Santa AI" shouldNarrow={shouldNarrow}>
+      <SideBarHeader title="SantaBot" shouldNarrow={shouldNarrow}>
         <div className={styles["sidebar-header-bar"]}>
           {/*<IconButton*/}
           {/*  icon={<MaskIcon />}*/}
