@@ -9,10 +9,10 @@ import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 import { getServerSideConfig } from "./config/server";
 
 export const metadata: Metadata = {
-  title: "SantaBot",
+  title: "Santa AI",
   description: "Your personal ChatGPT Chat Bot.",
   appleWebApp: {
-    title: "SantaBot",
+    title: "Santa AI",
     statusBarStyle: "default",
   },
 };
