@@ -26,6 +26,9 @@ import ConfirmIcon from "../icons/confirm.svg";
 import CloseIcon from "../icons/close.svg";
 import CancelIcon from "../icons/cancel.svg";
 import ImageIcon from "../icons/image.svg";
+import MaskIcon from "../icons/mask.svg";
+import SettingsIcon from "../icons/chat-settings.svg";
+import RobotIcon from "../icons/robot.svg";
 
 import LightIcon from "../icons/light.svg";
 import DarkIcon from "../icons/dark.svg";
