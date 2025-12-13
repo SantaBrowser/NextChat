@@ -15,6 +15,8 @@
   --hover-color: #f3f3f3;
   --bar-color: rgba(0, 0, 0, 0.1);
   --theme-color: var(--gray);
+  --loading-bg: linear-gradient(0deg, #FFF 0%, #FFF 100%);
+  --loading-text-color: rgba(0, 0, 0, 0.7);
 
   //--text-primary:
   //--text-tetriary:
@@ -59,6 +61,8 @@
   --primary: #DE5947;
   --second: rgb(27 38 42);
   --hover-color: #323232;
+  --loading-bg: #171717;
+  --loading-text-color: rgba(255, 255, 255, 0.80);
 
   --bg-ai-message: #252424;
   --bg-user-message: #000;
