@@ -127,7 +127,7 @@
 //  }
 
 .sidebar-show {
-  left: calc(50vw - 300px) !important;
+  left: max(0px, calc(50vw - 300px)) !important;
 }
 
 .mobile {
