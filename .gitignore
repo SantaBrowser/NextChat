@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 /.yarn/
+.idea
+*.iml
 # testing
 /coverage
 
