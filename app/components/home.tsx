@@ -9,7 +9,7 @@ import styles from "./home.module.scss";
 import SantaIcon from "../icons/santa.svg";
 import LoadingSantaIcon from "../icons/loading-santa.svg";
 import LoadingIcon from "../icons/three-dots.svg";
-import LoadingEffect1 from "../icons/effects/loading-1.svg";
+import LoadingSantaIconLight from "../icons/loading-santa-light.svg";
 
 import { getCSSVar, useMobileScreen } from "../utils";
 
@@ -49,17 +49,18 @@ function LoadingScreen() {
     <div className={styles["loading-screen"]}>
       <div className={styles["loading-screen-logo"]}>Santa AI</div>
 
-      <LoadingSantaIcon />
-
-      <div className={styles["loading-screen-slide-glow"]}>
-        <div className={styles["loading-screen-slide-glow-el1"]}></div>
-        <div className={styles["loading-screen-slide-glow-el2"]}>
-          <LoadingEffect1></LoadingEffect1>
+      <div className={styles["loading-screen-content"]}>
+        <div className={styles["loading-screen-icon-container"]}>
+          <div className={styles["loading-screen-icon-outer"]}>
+            <div className={styles["loading-screen-icon-inner"]}>
+              <LoadingSantaIconLight />
+            </div>
+            <div className={styles["loading-screen-spinner"]}></div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles["loading-screen-message"]}>
-        Ask Sant AI anything
+        <div className={styles["loading-screen-message"]}>
+          Ask Santa AI anything
+        </div>
       </div>
     </div>
   );
@@ -263,6 +264,7 @@ export function Home() {
   useSwitchTheme();
   useLoadData();
   useHtmlLang();
+  const [minLoadingComplete, setMinLoadingComplete] = useState(false);
 
   useEffect(() => {
     console.log("[Config] got config from build time", getClientConfig());
@@ -278,12 +280,17 @@ export function Home() {
         }
       } catch (err) {
         console.error("[MCP] failed to initialize:", err);
+      } finally {
+        setMinLoadingComplete(true);
       }
     };
     initMcp();
   }, []);
 
-  if (!useHasHydrated()) {
+  const hasHydrated = useHasHydrated();
+  const shouldShowLoading = !hasHydrated || !minLoadingComplete;
+
+  if (shouldShowLoading) {
     return <LoadingScreen />;
   }
 
