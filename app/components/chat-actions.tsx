@@ -3,6 +3,7 @@ import DeleteIcon from "../icons/delete.svg";
 import EditIcon from "../icons/edit.svg";
 import ShareIcon from "../icons/share.svg";
 import styles from "@/app/components/ui-lib.module.scss";
+import { MouseEventHandler } from "react";
 
 export function ChatActionsModal(props: {
   point: Pick<DOMPoint, "x" | "y">;
@@ -19,8 +20,22 @@ export function ChatActionsModal(props: {
     }
   };
 
+  const onMaskMouseDown: MouseEventHandler<HTMLDivElement | undefined> = (
+    e,
+  ) => {
+    const isClickOnModalMask = (e.target as HTMLDivElement)?.classList.contains(
+      "modal-mask",
+    );
+
+    if (!isClickOnModalMask) {
+      return;
+    }
+
+    props.onClose?.();
+  };
+
   return (
-    <div className="modal-mask" onMouseDown={() => props.onClose?.()}>
+    <div className="modal-mask" onMouseDown={onMaskMouseDown}>
       <Menu point={props.point} onClose={props.onClose}>
         <div
           className={styles["menu-item"]}
